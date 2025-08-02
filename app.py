@@ -4,17 +4,17 @@ from dotenv import load_dotenv
 import datetime
 import os
 
-
+load_dotenv()
 
 # Show title and description.
-st.set_page_config(page_title="Nurse Assistant", page_icon="💊")
 st.title(st.secrets["openai"]["APP_TITLE"])
+
+st.set_page_config(page_title="Nurse Assistant", page_icon="💊")
 
 # Ask user for their OpenAI API key via `st.text_input`.
 # Alternatively, you can store the API key in `./.streamlit/secrets.toml` and access it
 # via `st.secrets`, see https://docs.streamlit.io/develop/concepts/connections/secrets-management
 
-load_dotenv()
 OPENAI_API_KEY = st.secrets["openai"]["OPENAI_API_KEY"] if "openai" else os.getenv("OPENAI_API_KEY")
 
 if not OPENAI_API_KEY:
